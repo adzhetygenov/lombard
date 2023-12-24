@@ -1,0 +1,36 @@
+@use "../functions" as ff;
+@use "media" as ff-media;
+
+@mixin fluid-font($min-width, $max-width, $min-font-size, $max-font-size) {
+  $unit1: unit($min-width);
+  $unit2: unit($max-width);
+  $unit3: unit($min-font-size);
+  $unit4: unit($max-font-size);
+
+  @if $unit1 == $unit2 and $unit1 == $unit3 and $unit1 == $unit4 {
+    & {
+      font-size: $min-font-size;
+      line-height: $min-font-size * 1.3;
+
+      @media screen and (min-width: $min-width) {
+        font-size: calc(
+          #{$min-font-size} + #{ff.strip-unit($max-font-size - $min-font-size)} *
+            (
+              (100vw - #{$min-width}) / #{ff.strip-unit($max-width - $min-width)}
+            )
+        );
+        line-height: calc(
+          #{$min-font-size} + #{ff.strip-unit($max-font-size - $min-font-size)} *
+            1.618 *
+            (
+              (100vw - #{$min-width}) / #{ff.strip-unit($max-width - $min-width)}
+            )
+        );
+      }
+      @media screen and (min-width: $max-width) {
+        font-size: $max-font-size;
+        line-height: $max-font-size * 1.618;
+      }
+    }
+  }
+}

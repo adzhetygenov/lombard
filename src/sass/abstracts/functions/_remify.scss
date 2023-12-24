@@ -1,0 +1,7 @@
+@use 'sass:math';
+@use '../variables' as remify;
+
+// Px to Rem Function
+@function rem($pixels, $context: remify.$browser-context){
+	@return #{math.div($pixels, $context)}rem;
+}

@@ -1,0 +1,22 @@
+include /core/helpers/assets
+
+doctype html
+html(lang=info.projectHtmlLang)
+	head
+		include /core/helpers/meta
+
+		block styles
+			// build:css style/app.min.css
+			each link in path.css
+				+assets('css', link)
+			// endbuild
+
+	body
+		block content
+			//- Content Inclusion
+
+		block scripts
+			// build:js js/app.min.js
+			each link in path.js
+				+assets('js', link)
+			// endbuild

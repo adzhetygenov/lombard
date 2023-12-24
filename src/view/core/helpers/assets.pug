@@ -1,0 +1,5 @@
+mixin assets(type = 'css', link)
+	if(type === 'js')
+		script(src=link)
+	else
+		link(rel="stylesheet", href=link)

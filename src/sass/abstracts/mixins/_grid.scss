@@ -1,0 +1,49 @@
+@use 'sass:math';
+@use '../variables' as grid;
+@use 'media' as *;
+
+/* ### StartOf: Container ### */
+@mixin set-container() {
+	box-sizing: border-box;
+	max-width: grid.$grid-container-width;
+	width: 100%;
+	padding: 0 grid.$grid-container-padding-x;
+	margin: 0 auto;
+}
+/* ### EndOf: Container ### */
+
+/* ### StartOf: Grid row ### */
+@mixin set-row($margin: grid.$grid-row-margin){
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}	
+/* ### EndOf: Grid row ### */
+
+/* ### StartOf: Column ### */
+@mixin set-col($amount, $grid-columns: grid.$grid-columns, $gutter: grid.$grid-column-padding-x){
+	box-sizing: border-box;
+	flex: 0 0 calc(100% / $grid-columns * $amount);
+	width: calc(100% / $grid-columns * $amount);
+	padding: 0 $gutter;
+}
+
+// Columns setting based on breakpoints
+@mixin set-col-at($breakpoint, $amount, $gutter: grid.$grid-column-padding-x){
+	@include larger-than($breakpoint){
+		@include set-col($amount, $grid-columns: grid.$grid-columns, $gutter: $gutter);
+	}
+}
+/* ### EndOf: Column ### */
+
+/* ### StartOf: Offset ### */
+@mixin set-offset($offset, $grid-columns: grid.$grid-columns){
+	margin-left: calc(100% / $grid-columns * $offset);
+}
+
+@mixin set-offset-at($breakpoint, $offset){
+	@include larger-than($breakpoint) {
+		@include set-offset($offset);
+	}
+}
+/* ### EndOf: Offset ### */

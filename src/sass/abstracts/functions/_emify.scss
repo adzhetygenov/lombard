@@ -1,0 +1,7 @@
+@use 'sass:math';
+@use '../variables' as emify;
+
+// Px to Em Function
+@function em($pixels, $context: emify.$browser-context) {
+	@return #{math.div($pixels, $context)}em;
+}

@@ -1,0 +1,17 @@
+@mixin on-mobile-hover {
+	@media not all and (pointer: coarse) {
+		&:hover {
+				@content;
+			}
+		}
+}
+
+@mixin on-hover {
+	@include on-mobile-hover{
+		@content;
+	};
+	
+	&:hover {
+		@content;
+	}
+}
