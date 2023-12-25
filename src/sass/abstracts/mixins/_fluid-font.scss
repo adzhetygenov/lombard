@@ -9,27 +9,20 @@
 
   @if $unit1 == $unit2 and $unit1 == $unit3 and $unit1 == $unit4 {
     & {
-      font-size: $min-font-size;
-      line-height: $min-font-size * 1.3;
+      font-size: ff.rem(ff.strip-unit($min-font-size));
 
-      @media screen and (min-width: $min-width) {
+      @include ff-media.larger-than($min-width) {
         font-size: calc(
-          #{$min-font-size} + #{ff.strip-unit($max-font-size - $min-font-size)} *
-            (
-              (100vw - #{$min-width}) / #{ff.strip-unit($max-width - $min-width)}
-            )
-        );
-        line-height: calc(
-          #{$min-font-size} + #{ff.strip-unit($max-font-size - $min-font-size)} *
-            1.618 *
-            (
-              (100vw - #{$min-width}) / #{ff.strip-unit($max-width - $min-width)}
-            )
+          ff.rem(ff.strip-unit($min-font-size)) + #{ff.strip-unit(
+              $max-font-size - $min-font-size
+            )} * ((100vw - #{$min-width}) / #{ff.strip-unit(
+                  $max-width - $min-width
+                )})
         );
       }
-      @media screen and (min-width: $max-width) {
-        font-size: $max-font-size;
-        line-height: $max-font-size * 1.618;
+
+      @include ff-media.larger-than($max-width) {
+        font-size: ff.rem(ff.strip-unit($max-font-size));
       }
     }
   }

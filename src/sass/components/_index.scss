@@ -1,8 +1,1 @@
 @use "../abstracts" as *;
-@use "sass:map";
-
-body {
-  @each $color, $value in $colors {
-    --clr-#{$color}: #{$value};
-  }
-}
