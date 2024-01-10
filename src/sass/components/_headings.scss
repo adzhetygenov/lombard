@@ -1,0 +1,36 @@
+@use "../abstracts" as h;
+
+.heading {
+  &--200,
+  &--300 {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto -1rem;
+      z-index: -1;
+    }
+  }
+
+  &--200 {
+    &::before {
+      @include h.size(box, 50);
+      background-color: var(--clr-accent-300);
+    }
+    &:has(+ button) {
+      margin-bottom: 1.25rem;
+
+      @include h.larger-than(md) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &--300 {
+    &::before {
+      @include h.size(box, 42);
+      background-color: var(--clr-secondary-200);
+    }
+  }
+}

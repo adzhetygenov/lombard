@@ -1,0 +1,14 @@
+@use "../functions" as f;
+
+@mixin size($w: null, $h: null) {
+  @if $w == box {
+    width: f.rem($h);
+    height: f.rem($h);
+  } @else if $w == full {
+    width: 100%;
+    height: 100%;
+  } @else {
+    width: f.rem($w);
+    height: f.rem($h);
+  }
+}

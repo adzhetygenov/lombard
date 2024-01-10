@@ -1,1 +1,6 @@
-@use "../abstracts" as *;
+@forward "headings";
+@forward "container";
+@forward "nav";
+@forward "buttons";
+@forward "icons";
+@forward "slider";

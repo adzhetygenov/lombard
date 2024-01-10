@@ -1,0 +1,65 @@
+section.callback
+	.wrapper.callback__wrapper
+		.callback__info
+			header.callback__heading
+				h2.heading--200 Открыты для общения
+
+			.callback__item
+				.callback__icon
+					img(src="img/msg.svg", alt="")
+
+				.callback__content
+
+					h4 Пишите нам
+					p.text--fs-400.text--secondary-400.text--fw-400 в мессенджеры на
+						a(href='') +7 (968) 096-59-40
+
+					.callback__socials
+						a(href="").callback__social.callback__social-tg Telegram 
+						a(href="").callback__social.callback__social-wa Watsapp
+
+			.callback__item
+				.callback__icon
+					img(src="img/phone.svg", alt="")
+
+				.callback__content
+					h4 Звоните
+					p.text--fs-400.text--secondary-400.text--fw-400 с 10-00 до 18-00 по Мск
+					a(href="tel: +7 (495) 677-95-51").text--fs-600.text--primary-200.text--fw-500 +7 (495) 677-95-51 
+
+
+			.callback__item
+				.callback__icon
+					img(src="img/pin.svg", alt="")
+
+				.callback__content
+					h4 Приезжайте
+					p.text--fs-400.text--secondary-400.text--fw-400 Москва, ул. 3-я Северная линия, д. 14, оф. 2
+
+					a(href="").text--primary-100.text--fs-400.text--fw-400 Мы на Яндекс.Картах 
+
+
+		.callback__callback
+			h3 Ответим на любые вопросы: 
+				span.text--primary-100 расскажем, покажем и дадим попробовать
+
+			p.text--primary-200.text--fs-400.text--fw-400 Проведём онлайн демонстрацию по Zoom!
+
+			form.callback__form.js-form
+
+				.callback__group
+					input.callback__input.js-input.js-name(type='text' id='name' placeholder='Ваше имя')
+					label.callback__label.text--secondary-400(for='name') Как к вам обращаться (ваше имя)
+					
+				.callback__group
+					input.callback__input.js-input.js-phone(type='text' id='phone' placeholder='Телефон')
+					label.callback__label.text--secondary-400(for='phone') Телефон, чтобы мы могли перезвонить
+
+				.callback__group
+					input.callback__input.js-input.js-mail(type='text' id='mail' placeholder='Электронная почта')
+					label.callback__label.text--secondary-400(for='mail') Электронная почта для отправки ответа
+
+				.callback__group
+					textarea.callback__input.js-input.callback__input-textarea.js-textarea(type='text' id='question' placeholder='Ваш вопрос')
+
+				button.btn.btn--primary.btn--lg.callback__btn Отправить сообщение

@@ -1,0 +1,170 @@
+@use "../abstracts/" as *;
+
+.callback {
+  &__wrapper {
+    @include larger-than(md) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: rem(20);
+    }
+  }
+
+  &__heading {
+    margin-bottom: rem(70);
+  }
+
+  &__item {
+    display: flex;
+    gap: rem(30);
+
+    &:not(:last-child) {
+      margin-bottom: rem(60);
+    }
+  }
+
+  &__icon {
+    display: none;
+
+    @include larger-than(md) {
+      @include size(box, 76);
+      border-radius: rem(10);
+      transform: rotate(-23deg);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--clr-neutral-100);
+      box-shadow: 0px 26px 44px -10px hsla(231, 69%, 54%, 0.27);
+
+      img {
+        transform: rotate(23deg);
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: rem(10);
+    margin-top: 1rem;
+  }
+
+  &__social {
+    position: relative;
+    @include size(box, 50);
+    display: inline-block;
+    text-indent: 99999px;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: {
+        repeat: no-repeat;
+        size: 24px 24px;
+        position: center;
+      }
+    }
+
+    &-tg {
+      background-color: var(--clr-primary-100);
+
+      &::before {
+        background-image: url(../img/tg.svg);
+      }
+    }
+
+    &-wa {
+      background-color: var(--clr-accent-400);
+
+      &::before {
+        background-image: url(../img/wa.svg);
+      }
+    }
+  }
+
+  &__callback {
+    background-color: var(--clr-neutral-100);
+    border-radius: rem(20);
+    box-shadow: 0px 26px 44px -10px hsla(231, 69%, 54%, 0.27);
+    margin-top: rem(30);
+    padding: rem(20);
+
+    @include larger-than(md) {
+      padding: rem(48);
+      margin-top: rem(-30);
+    }
+  }
+
+  &__form {
+    margin-top: rem(40);
+  }
+
+  &__group {
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  &__input {
+    width: 100%;
+    padding: rem(15) rem(20);
+    border-radius: rem(10);
+    border: 1px solid var(--clr-secondary-400);
+    color: var(--clr-primary-200);
+    font-size: rem(18);
+
+    @include larger-than(md) {
+      padding: rem(24) rem(28) 0.5rem;
+    }
+
+    &::placeholder {
+      font-size: var(--fs-400);
+      color: var(--clr-secondary-400);
+    }
+
+    &:not(textarea)::placeholder {
+      @include larger-than(md) {
+        visibility: hidden;
+      }
+    }
+
+    &:focus {
+      outline-color: var(--clr-primary-100);
+    }
+
+    &:focus,
+    &--active {
+      & + label {
+        pointer-events: none;
+        font-size: rem(12);
+        top: 16px;
+      }
+    }
+
+    &-textarea {
+      max-height: rem(70);
+      resize: none;
+    }
+  }
+
+  &__label {
+    @include transition();
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    padding-left: rem(28);
+    padding-right: rem(28);
+    font-size: var(--fs-300);
+    display: none;
+
+    @include larger-than(md) {
+      display: block;
+      font-size: inherit;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,94 @@
+@use "../abstracts/" as *;
+
+.total {
+  &__heading {
+    margin-bottom: 5rem;
+  }
+
+  &__list {
+    @include larger-than(md) {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: rem(50);
+      row-gap: rem(100);
+    }
+  }
+
+  &__item {
+    display: block;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    &:first-child,
+    &:nth-child(2),
+    &:nth-child(3) {
+      @include larger-than(md) {
+        grid-column: span 4;
+      }
+    }
+
+    @include larger-than(md) {
+      grid-column: span 3;
+    }
+
+    &--has-icon {
+      @include larger-than(md) {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-between;
+
+        .total {
+          &__description {
+            font-size: var(--fs-400);
+          }
+
+          &__number {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: rem(14);
+
+            &::before {
+              content: "";
+              @include size(box, 48);
+              background: {
+                position: center;
+                size: contain;
+                repeat: no-repeat;
+              }
+            }
+
+            &--puzzle {
+              &::before {
+                background-image: url("../img/puzzle.svg");
+              }
+            }
+
+            &--check {
+              &::before {
+                background-image: url("../img/check-circle.svg");
+              }
+            }
+
+            &--mail {
+              &::before {
+                background-image: url("../img/mail.svg");
+              }
+            }
+
+            &--profile {
+              &::before {
+                background-image: url("../img/clock.svg");
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__number {
+    font-size: 3rem;
+  }
+}

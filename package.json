@@ -61,6 +61,8 @@
     "last 3 versions"
   ],
   "dependencies": {
-    "normalize.css": "^8.0.1"
+    "imask": "^7.3.0",
+    "normalize.css": "^8.0.1",
+    "swiper": "^11.0.5"
   }
 }

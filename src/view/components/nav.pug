@@ -1,0 +1,6 @@
+mixin nav(links)
+	nav(class='nav js-nav')&attributes(attributes)
+		each link in links
+			a(href='').nav__link #{link}
+	button.nav__mobile.js-mobile
+		| Навигация

@@ -1,0 +1,59 @@
+@use "../abstracts/" as *;
+
+.slider {
+  position: relative;
+
+  &__controls {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    @include larger-than(md) {
+      width: 100%;
+      justify-content: space-between;
+      position: absolute;
+      top: 50%;
+      z-index: 1;
+      transform: translateY(-50%);
+      margin-top: 0;
+    }
+  }
+
+  &__btn {
+    @include size(box, 38);
+    @include transition(0.3s);
+    cursor: pointer;
+    background-color: var(--clr-primary-100);
+    border-radius: 50%;
+
+    &:hover {
+      background-color: hsla(230, 100%, 47%, 1);
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      @include size(full);
+      background: {
+        image: url("../img/control.svg");
+        repeat: no-repeat;
+        position: center;
+        size: rem(24) rem(24);
+      }
+    }
+
+    &--prev {
+      left: rem(-30);
+
+      &::before {
+        transform: rotate(-180deg);
+      }
+    }
+
+    &--next {
+      right: rem(-30);
+    }
+  }
+}

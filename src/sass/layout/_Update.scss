@@ -1,0 +1,46 @@
+@use "../abstracts/" as *;
+
+.update {
+  &__heading {
+    padding: rem(62) 0;
+
+    @include larger-than(md) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: rem(50) rem(40);
+    border-radius: rem(20);
+  }
+
+  &__link {
+    margin-top: rem(30);
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: rem(6);
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &::before {
+        content: "";
+        @include size(box, 24);
+        background: {
+          image: url(../img/ext.svg);
+          size: contain;
+          position: center;
+          repeat: no-repeat;
+        }
+      }
+    }
+  }
+}

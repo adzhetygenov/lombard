@@ -1,0 +1,36 @@
+include ../components/btn
+include ../components/icons
+
+header.masthead
+	.wrapper.masthead__wrapper
+		.masthead__heading
+			h1.masthead__title= Masthead.title
+				span.text--primary-100= Masthead.title_accent
+			
+			p.masthead__cta-text.text--fs-700.text--fw-500= Masthead.cta_text
+
+			.masthead__cta
+				+btn(Masthead.cta_btn)(class='masthead__btn')
+				p.masthead__notation.text--secondary-400= Masthead.notation
+
+		.masthead__testimonials
+		
+			.masthead__roll-out
+				.masthead__trigger.js-trigger Преимущества
+				ul.masthead__functions
+					each item in Masthead.list
+						li.masthead__function(class=item.mod)
+							if item.text
+								span.masthead__text.text--primary-100.text--fw-500
+									+icon(item.icon)
+									| #{item.text}
+							else
+								span.masthead__text.text--primary-100.text--fw-500
+									+icon(item.icon)
+
+			.masthead__description
+				h3.masthead__description__title.heading--300= Masthead.description_title
+
+				ul.masthead__list
+					each item in Masthead.description_list
+						li.masthead__item= item

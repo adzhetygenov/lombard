@@ -1,0 +1,50 @@
+@use "../abstracts" as glob;
+@use "sass:map";
+
+:root {
+  --ff: #{glob.$ff};
+  @each $type, $pallete in glob.$colors {
+    @each $value, $color in $pallete {
+      --clr-#{$type}-#{$value}: hsl(#{$color});
+    }
+  }
+
+  @each $weight, $value in glob.$font-weights {
+    --fw-#{$weight}: #{$value};
+  }
+
+  @each $scale, $value in glob.$type-scale {
+    --fs-#{$scale}: #{glob.rem(glob.strip-unit($value))};
+  }
+}
+
+body {
+  overflow-x: hidden;
+  color: var(--clr-primary-200);
+}
+
+section {
+  padding: glob.rem(80) 0;
+}
+
+a {
+  @include glob.transition();
+  &:hover {
+    opacity: 0.8;
+  }
+}
+// Text
+.text {
+  &--overline {
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      @include glob.size(30, 4);
+      margin-bottom: glob.rem(20);
+      background-color: var(--clr-primary-100);
+      border-radius: glob.rem(4);
+    }
+  }
+}

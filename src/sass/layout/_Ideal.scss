@@ -1,0 +1,108 @@
+@use "../abstracts" as *;
+
+.ideal {
+  --card-border-radius: #{rem(20)};
+  --card-box-shadow: hsla(231, 69%, 54%, 0.27);
+
+  &__wrapper {
+    @include larger-than(md) {
+      display: grid;
+      grid-template-columns: 3fr 9fr;
+      gap: rem(20);
+      grid-template-areas:
+        "heading cards"
+        "heading specials";
+    }
+  }
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: rem(25);
+
+    @include larger-than(md) {
+      grid-area: heading;
+      flex-direction: column;
+    }
+  }
+
+  &__img {
+    display: none;
+    &::before {
+      z-index: -1;
+      transform: rotate(-24deg);
+      background-color: var(--clr-neutral-100);
+      box-shadow: 0px 26px 44px -10px var(--card-box-shadow);
+    }
+
+    &::after {
+      z-index: -2;
+      transform: rotate(-45deg);
+      background-color: hsla(238, 68%, 93%, 1);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      flex: 0 0 rem(70);
+      aspect-ratio: 1;
+      border-radius: var(--card-border-radius);
+
+      @include larger-than(md) {
+        flex: 0 0 rem(100);
+      }
+    }
+
+    @include larger-than(md) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: rem(50);
+      position: relative;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: rem(90);
+    margin-top: rem(50);
+
+    @include larger-than(md) {
+      grid-area: cards;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    padding: rem(35) rem(30) rem(25);
+    min-height: rem(220);
+    border-radius: var(--card-border-radius);
+    background-color: var(--clr-neutral-100);
+    box-shadow: 0px 26px 44px -10px var(--card-box-shadow);
+  }
+
+  &__name {
+    margin-bottom: rem(10);
+  }
+
+  &__type {
+    margin-top: auto;
+  }
+
+  &__special {
+    grid-area: specials;
+  }
+
+  &__notation {
+    margin: rem(6) 0 rem(20);
+  }
+}

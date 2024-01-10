@@ -1,0 +1,31 @@
+@use "../abstracts" as u;
+
+@each $type, $pallete in u.$colors {
+  @each $value, $color in $pallete {
+    .text--#{$type}-#{$value} {
+      color: var(--clr-#{$type}-#{$value});
+    }
+
+    .bg--#{$type}-#{$value} {
+      background-color: var(--clr-#{$type}-#{$value});
+    }
+  }
+}
+
+@each $weight, $value in u.$font-weights {
+  .text--fw-#{$value} {
+    font-weight: var(--fw-#{$value}, $value);
+  }
+}
+
+@each $scale, $value in u.$type-scale {
+  .text--fs-#{$scale} {
+    font-size: var(--fs-#{$scale}, u.rem(u.strip-unit($value)));
+  }
+}
+
+@each $alignment, $value in u.$text-align {
+  .text--#{$alignment} {
+    text-align: #{$value};
+  }
+}

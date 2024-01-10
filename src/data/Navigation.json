@@ -1,0 +1,18 @@
+{
+  "links": ["О программе", "Тарифы и цены", "Контакты"],
+  "button": {
+    "type": "outline",
+    "size": "md",
+    "text": "Попробовать бесплатно"
+  },
+  "contacts": [
+    {
+      "text": "Заказать обратный звонок",
+      "mod": "text--fs-300 text--primary-100 text--fw-500 text--right"
+    },
+    {
+      "text": "+7 (495) 677-95-51",
+      "mod": "text--fs-500 text--primary-200 text--fw-700 text--right"
+    }
+  ]
+}

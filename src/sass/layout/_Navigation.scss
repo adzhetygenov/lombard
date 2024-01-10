@@ -1,0 +1,30 @@
+@use "../abstracts" as *;
+
+.navigation {
+  padding: rem(50) 0 rem(25);
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: rem(20);
+
+    @include larger-than(sm) {
+      justify-content: space-between;
+    }
+  }
+  &__contacts {
+    @include larger-than(sm) {
+      margin-left: auto;
+    }
+
+    @include larger-than(xl) {
+      margin-left: 0;
+    }
+  }
+
+  &__contact {
+    display: block;
+  }
+}

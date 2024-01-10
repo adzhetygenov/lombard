@@ -29,7 +29,7 @@ figure,
 blockquote,
 dl,
 dd {
-  margin-block-end: 0;
+  margin: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -64,11 +64,19 @@ h4 {
 }
 
 /* A elements that don't have a class get default styles */
+a {
+  text-decoration: none;
+}
+
 a:not([class]) {
   text-decoration-skip-ink: auto;
   color: currentColor;
 }
 
+a,
+button {
+  cursor: pointer;
+}
 /* Make images easier to work with */
 img,
 picture {
@@ -84,6 +92,10 @@ select {
   font: inherit;
 }
 
+button {
+  outline: 0;
+  border: 0;
+}
 /* Make sure textareas without a rows attribute are not tiny */
 textarea:not([rows]) {
   min-height: 10em;

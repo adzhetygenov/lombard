@@ -1,0 +1,4 @@
+@use '../abstracts/mixins/font-face' as ff; 
+@include ff.font-face('Onest', 'Onest-Bold', 700);
+@include ff.font-face('Onest', 'Onest-Regular', 400);
+@include ff.font-face('Onest', 'Onest-Medium', 500);

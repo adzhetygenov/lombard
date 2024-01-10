@@ -1,0 +1,70 @@
+@use "../abstracts" as b;
+@use "sass:color";
+@use "sass:map";
+
+.btn {
+  // Статичные стили, которые не меняются
+  --btn-border-radius: #{b.rem(10)};
+
+  --btn-clr-primary: var(--clr-primary-100);
+  --btn-clr-primary-hover: 230 100% 47%;
+
+  --btn-clr-secondary: hsl(216, 46%, 36%);
+  --btn-clr-secondary-hover: hsl(216, 41%, 44%);
+
+  --btn-lg-padding-x: 1rem;
+  --btn-lg-padding-y: #{b.rem(28)};
+
+  --btn-md-padding-x: #{b.rem(14)};
+  --btn-md-padding-y: 1rem;
+
+  @include b.transition(0.3s);
+  border-radius: var(--btn-border-radius);
+  border: 0;
+  text-align: center;
+  color: var(--clr-neutral-100);
+
+  &--lg {
+    padding: var(--btn-lg-padding-x) var(--btn-lg-padding-y);
+  }
+
+  &--md {
+    padding: var(--btn-md-padding-x) var(--btn-md-padding-y);
+  }
+
+  &--primary {
+    background-color: var(--btn-clr-primary);
+
+    &:hover {
+      background-color: hsl(var(--btn-clr-primary-hover));
+    }
+  }
+
+  &--secondary {
+    background-color: var(--btn-clr-secondary);
+
+    &:hover {
+      background-color: var(--btn-clr-secondary-hover);
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    border: b.rem(2) solid var(--btn-clr-primary);
+    color: var(--btn-clr-primary);
+
+    &:hover {
+      box-shadow: 0px 8px 30px 0px hsl(var(--btn-clr-primary-hover) / 0.25);
+    }
+
+    &-light {
+      background-color: transparent;
+      border: b.rem(2) solid var(--clr-neutral-100);
+      color: var(--btn-clr-primary);
+
+      &:hover {
+        box-shadow: 0px 8px 30px 0px hsl(var(--btn-clr-primary-hover) / 0.25);
+      }
+    }
+  }
+}

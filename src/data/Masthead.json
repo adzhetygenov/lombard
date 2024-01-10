@@ -1,0 +1,43 @@
+{
+  "title": "Лучшая программа для автоматизации",
+  "title_accent": " автоломбарда",
+  "cta_text": "Начните работать в XLombard бесплатно уже сегодня",
+
+  "cta_btn": {
+    "type": "primary",
+    "size": "lg",
+    "text": "Хочу попробовать"
+  },
+
+  "notation": "Подберем пакет документов и сделаем базовые настройки",
+
+  "list": [
+    {
+      "text": "Экспертиза",
+      "icon": "expertise",
+      "mod": "masthead__function--default"
+    },
+    {
+      "text": "Поддержка",
+      "icon": "support",
+      "mod": "masthead__function--default"
+    },
+    {
+      "text": "Доработки",
+      "icon": "workaround",
+      "mod": "masthead__function--default"
+    },
+    {
+      "icon": "modules",
+      "mod": "masthead__function--current"
+    }
+  ],
+
+  "description_title": "Функционал",
+  "description_list": [
+    "18 модулей",
+    "Полный цикл управления портфелем",
+    "Безопасность",
+    "CRM"
+  ]
+}

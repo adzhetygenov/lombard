@@ -1,0 +1,51 @@
+@use "../abstracts/" as *;
+
+.feedback {
+  &__heading {
+    margin-bottom: rem(60);
+
+    @include larger-than(md) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(40);
+    padding: rem(60) rem(45);
+    background-color: var(--clr-neutral-100);
+    border-radius: rem(20);
+    box-shadow: 0px 26px 44px -10px hsla(231, 69%, 54%, 0.27);
+  }
+
+  &__logo {
+    flex: 0 0 5rem;
+  }
+
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__text {
+    @include transition();
+    max-height: rem(100);
+    overflow: hidden;
+  }
+
+  &__person {
+    justify-self: flex-end;
+    margin-top: rem(40);
+
+    span {
+      display: block;
+    }
+  }
+}
